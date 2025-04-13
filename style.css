@@ -1,5 +1,5 @@
 .logo {
-  max-width: 4px;
+  max-width: 128px;
   display: block;
   margin: 2rem auto 1rem;
 }
@@ -22,7 +22,7 @@ nav.nav-links a {
   color: #000;
 }
 main {
-  max-width: 800px;
+  max-width: 400px;
   margin: auto;
   padding: 2rem;
 }
