@@ -176,13 +176,6 @@ footer {
   background-color: #0e9f6e;
 }
 
-.favicon {
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
 .article-preview {
   background-color: var(--bg-card);
   border-left: 4px solid var(--accent-color);
