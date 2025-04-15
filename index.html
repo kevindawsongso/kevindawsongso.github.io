@@ -1,52 +1,77 @@
-
 <!DOCTYPE html>
-<html lang="en" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kevin Dawson | Cybersecurity Portfolio</title>
-  <meta name="description" content="Cybersecurity projects, labs, and insights by Kevin Dawson.">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
-<body class="flex flex-col min-h-screen">
-  <header class="p-4 flex items-center justify-between max-w-4xl mx-auto">
-    <img src="assets/KDlogo.png" alt="KD Logo" class="logo">
-    <nav class="space-x-4 text-sm">
-      <a href="#about">About</a>
-      <a href="#labs">Labs</a>
-      <a href="#contact">Contact</a>
-      <button id="theme-toggle">🌓</button>
-    </nav>
-  </header>
+<body class="bg-gray-900 text-white font-sans">
+  <div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-full max-w-xs bg-gray-800 p-6 flex flex-col items-center">
+      <img src="assets/kd-logo.png" alt="KD Logo" class="w-24 h-24 rounded-full mb-4" />
+      <h1 class="text-xl font-semibold mb-1">Kevin Dawson</h1>
+      <p class="text-sm text-gray-400 mb-6">Cybersecurity Analyst</p>
+      <div class="space-y-4 w-full">
+        <div class="flex items-center space-x-2 text-sm">
+          <i class="fas fa-envelope"></i>
+          <span>kevin@email.com</span>
+        </div>
+        <div class="flex items-center space-x-2 text-sm">
+          <i class="fas fa-phone"></i>
+          <span>(123) 456-7890</span>
+        </div>
+        <div class="flex items-center space-x-2 text-sm">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Greensboro, NC</span>
+        </div>
+      </div>
+    </aside>
 
-  <main class="flex-grow max-w-4xl mx-auto px-4">
-    <section class="text-center mt-10" id="about">
-      <img src="assets/profile.jpg" alt="Kevin Dawson" class="w-24 h-24 rounded-full mx-auto mb-4 border">
-      <h1 class="text-3xl font-bold">Kevin Dawson</h1>
-      <p class="text-muted mt-2">Security-driven technologist focused on threat detection, cloud security, and compliance.</p>
-      <p class="text-sm mt-2">Currently studying: CySA+ | Terraform | Threat Hunting</p>
-    </section>
+    <!-- Main Content -->
+    <main class="flex-1 p-10">
+      <!-- Navigation -->
+      <nav class="flex space-x-6 mb-10">
+        <a href="#" class="text-yellow-400 font-semibold">About</a>
+        <a href="#">Resume</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </nav>
 
-    <section id="labs" class="mt-10">
-      <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Labs & Projects</h2>
-      <article class="mb-6 border-l-4 pl-4 border-green-500">
-        <h3 class="text-lg font-semibold"><a href="#">Vulnerability Management & Compliance Framework</a></h3>
-        <p class="text-sm text-muted">Mapped vulnerabilities to NIST/ISO frameworks and created remediation strategies using Nessus and OpenVAS.</p>
-      </article>
-      <article class="mb-6 border-l-4 pl-4 border-blue-500">
-        <h3 class="text-lg font-semibold"><a href="#">AWS Cloud Security & Threat Detection</a></h3>
-        <p class="text-sm text-muted">Deployed honeypots and tuned AWS-native security tools like GuardDuty, WAF, and Detective for real attack detection.</p>
-      </article>
-      <article class="mb-6 border-l-4 pl-4 border-yellow-500">
-        <h3 class="text-lg font-semibold"><a href="#">Cloud Risk Assessment & Threat Intelligence</a></h3>
-        <p class="text-sm text-muted">Simulated IAM misconfigs and monitored telemetry to assess detection quality with GuardDuty and Security Hub.</p>
-      </article>
-    </section>
-  </main>
+      <!-- About Me -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-2 border-b border-gray-700 pb-2">About Me</h2>
+        <p class="text-gray-300 leading-relaxed">
+          I'm a cybersecurity analyst passionate about blue team ops, AI-driven automation, and nonprofit tech transformation. My goal is to build security-focused solutions that reduce risk, improve visibility, and create real-world impact.
+        </p>
+      </section>
 
-  <footer class="p-4 text-center text-xs border-t">
-    <p>&copy; 2025 Kevin Dawson • <a href="https://github.com/kevindawsongso" target="_blank">GitHub</a> • <a href="https://linkedin.com/in/kevindawsongso" target="_blank">LinkedIn</a></p>
-  </footer>
+      <!-- What I'm Doing -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">What I'm Doing</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-5 rounded-xl">
+            <h3 class="font-semibold text-yellow-400 mb-2">Threat Hunting</h3>
+            <p class="text-gray-300 text-sm">Analyzing log data, detecting anomalies, and improving SIEM visibility using Splunk and Suricata.</p>
+          </div>
+          <div class="bg-gray-800 p-5 rounded-xl">
+            <h3 class="font-semibold text-yellow-400 mb-2">AI & Automation</h3>
+            <p class="text-gray-300 text-sm">Building scripts and tools in Python and PowerShell to automate alerts, triage, and security workflows.</p>
+          </div>
+          <div class="bg-gray-800 p-5 rounded-xl">
+            <h3 class="font-semibold text-yellow-400 mb-2">Nonprofit Tech</h3>
+            <p class="text-gray-300 text-sm">Strengthening security infrastructure and documentation for small nonprofits with limited resources.</p>
+          </div>
+          <div class="bg-gray-800 p-5 rounded-xl">
+            <h3 class="font-semibold text-yellow-400 mb-2">Lifecycle & Compliance</h3>
+            <p class="text-gray-300 text-sm">Streamlining hardware lifecycles, improving patch management, and aligning with cybersecurity frameworks.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
