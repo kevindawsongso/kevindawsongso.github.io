@@ -1,27 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kevin Dawson | Cybersecurity Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.classList.contains('dark') ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.classList.remove(current);
+      html.classList.add(next);
+      localStorage.setItem('theme', next);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const storedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.classList.add(storedTheme);
+    });
+  </script>
+  <!-- Calendly badge widget begin -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      Calendly.initBadgeWidget({
+        url: 'https://calendly.com/reachkevindawson/30min',
+        text: 'Let\'s meet!',
+        color: '#0069ff',
+        textColor: '#131212'
+      });
+    };
+  </script>
+  <!-- Calendly badge widget end -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-black font-sans">
   <div class="min-h-screen flex">
     <!-- Sidebar -->
     <aside class="w-full max-w-xs bg-gray-100 p-6 flex flex-col items-center">
       <img src="assets/kd-logo.png" alt="KD Logo" class="w-24 h-24 rounded-full mb-4" />
       <h1 class="text-xl font-semibold mb-1">Kevin Dawson</h1>
-      <p class="text-sm text-gray-400 mb-6">IT & Cybersecurity Professional</p>
+      <p class="text-sm text-gray-600 mb-6">Cybersecurity Analyst</p>
       <div class="space-y-4 w-full">
+        <!-- Calendly link visual as fallback -->
+        <div class="text-center text-sm mb-2">
+          <a href="https://calendly.com/reachkevindawson/30min" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book a Meeting</a>
+        </div>
         <div class="flex items-center space-x-2 text-sm">
           <i class="fas fa-envelope"></i>
-          <span>reachkevindawson@gmail.com</span>
+          <span>kevin@email.com</span>
         </div>
         <div class="flex items-center space-x-2 text-sm">
           <i class="fas fa-phone"></i>
-          <span>(336) 451-7839</span>
+          <span>(123) 456-7890</span>
         </div>
         <div class="flex items-center space-x-2 text-sm">
           <i class="fas fa-map-marker-alt"></i>
@@ -31,43 +64,48 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-10">
+    <main class="flex-1 p-10 bg-white dark:bg-gray-900 dark:text-white">
+      <!-- Theme Toggle -->
+      <div class="flex justify-end mb-6">
+        <button onclick="toggleTheme()" class="px-4 py-2 text-sm rounded bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">Toggle Theme</button>
+      </div>
+
       <!-- Navigation -->
       <nav class="flex space-x-6 mb-10">
-        <a href="#" class="text-yellow-400 font-semibold">About</a>
-        <a href="#">Resume</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
+        <a href="#" class="text-blue-600 dark:text-yellow-400 font-semibold">About</a>
+        <a href="#" class="hover:underline">Resume</a>
+        <a href="#" class="hover:underline">Portfolio</a>
+        <a href="#" class="hover:underline">Blog</a>
+        <a href="#" class="hover:underline">Contact</a>
       </nav>
 
       <!-- About Me -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-2 border-b border-gray-700 pb-2">About Me</h2>
-        <p class="text-gray-300 leading-relaxed">
+        <h2 class="text-2xl font-bold mb-2 border-b border-gray-300 dark:border-gray-700 pb-2">About Me</h2>
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
           I'm a cybersecurity analyst passionate about blue team ops, AI-driven automation, and nonprofit tech transformation. My goal is to build security-focused solutions that reduce risk, improve visibility, and create real-world impact.
         </p>
       </section>
 
       <!-- What I'm Doing -->
       <section>
-        <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">What I'm Doing</h2>
+        <h2 class="text-2xl font-bold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">What I'm Doing</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white border border-gray-200 p-5 rounded-xl shadow-sm">
-            <h3 class="font-semibold text-yellow-400 mb-2">Threat Hunting</h3>
-            <p class="text-gray-300 text-sm">Analyzing log data, detecting anomalies, and improving SIEM visibility using Splunk and Suricata.</p>
+          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-sm">
+            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">Threat Hunting</h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm">Analyzing log data, detecting anomalies, and improving SIEM visibility using Splunk and Suricata.</p>
           </div>
-          <div class="bg-white border border-gray-200 p-5 rounded-xl shadow-sm">
-            <h3 class="font-semibold text-yellow-400 mb-2">AI & Automation</h3>
-            <p class="text-gray-300 text-sm">Building scripts and tools in Python and PowerShell to automate alerts, triage, and security workflows.</p>
+          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-sm">
+            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">AI & Automation</h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm">Building scripts and tools in Python and PowerShell to automate alerts, triage, and security workflows.</p>
           </div>
-          <div class="bg-white border border-gray-200 p-5 rounded-xl shadow-sm">
-            <h3 class="font-semibold text-yellow-400 mb-2">Nonprofit Tech</h3>
-            <p class="text-gray-300 text-sm">Strengthening security infrastructure and documentation for small nonprofits with limited resources.</p>
+          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-sm">
+            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">Nonprofit Tech</h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm">Strengthening security infrastructure and documentation for small nonprofits with limited resources.</p>
           </div>
-          <div class="bg-white border border-gray-200 p-5 rounded-xl shadow-sm">
-            <h3 class="font-semibold text-yellow-400 mb-2">Lifecycle & Compliance</h3>
-            <p class="text-gray-300 text-sm">Streamlining hardware lifecycles, improving patch management, and aligning with cybersecurity frameworks.</p>
+          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-sm">
+            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">Lifecycle & Compliance</h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm">Streamlining hardware lifecycles, improving patch management, and aligning with cybersecurity frameworks.</p>
           </div>
         </div>
       </section>
