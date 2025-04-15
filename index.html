@@ -1,55 +1,52 @@
+
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Kevin Dawson - Cybersecurity Professional" />
-  <title>Kevin Dawson</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="theme-toggle.js"></script>
-  <!-- Social Meta Tags -->
-  <meta property="og:title" content="Kevin Dawson | Cybersecurity Professional" />
-  <meta property="og:description" content="Hands-on security projects, insights, and tools by Kevin Dawson." />
-  <meta property="og:image" content="assets/social-preview.jpg" />
-  <meta property="og:url" content="https://kevindawsongso.github.io" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kevin Dawson | Cybersecurity Professional" />
-  <meta name="twitter:description" content="Explore cybersecurity projects and real-world experience from Kevin Dawson." />
-  <meta name="twitter:image" content="assets/social-preview.jpg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin Dawson | Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity projects, labs, and insights by Kevin Dawson.">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <header>
-    <img src="assets/social-preview.jpg" alt="Kevin Dawson Logo" class="logo-image" />
-    <nav class="nav">
+<body class="flex flex-col min-h-screen">
+  <header class="p-4 flex items-center justify-between max-w-4xl mx-auto">
+    <img src="assets/logo.svg" alt="KD Logo" class="h-10 w-10">
+    <nav class="space-x-4 text-sm">
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#insights">Insights</a>
-      <a href="#resume">Resume</a>
+      <a href="#labs">Labs</a>
       <a href="#contact">Contact</a>
-      <button id="toggle-theme">🌓</button>
+      <button id="theme-toggle">🌓</button>
     </nav>
   </header>
-  <main>
-    <section id="about">
-      <h1 class="animated">Hi, I'm Kevin Dawson</h1>
-      <p>I build secure, scalable systems with clarity and purpose. Welcome to my digital portfolio.</p>
-      <p class="ticker">Currently learning: CySA+ | MS SC-200 | Prompt Engineering</p>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4">
+    <section class="text-center mt-10" id="about">
+      <img src="assets/profile.jpg" alt="Kevin Dawson" class="w-24 h-24 rounded-full mx-auto mb-4 border">
+      <h1 class="text-3xl font-bold">Kevin Dawson</h1>
+      <p class="text-muted mt-2">Security-driven technologist focused on threat detection, cloud security, and compliance.</p>
+      <p class="text-sm mt-2">Currently studying: CySA+ | Terraform | Threat Hunting</p>
     </section>
-    <section id="projects">
-      <h2>Featured Labs</h2>
-      <ul class="lab-links">
-        <li><a href="#vulnerability-lab">Vulnerability Management & Compliance Framework Lab</a></li>
-        <li><a href="#aws-threat-lab">AWS Cloud Security & Threat Detection Lab</a></li>
-        <li><a href="#cloud-risk-lab">Cloud Risk Assessment & Threat Intelligence Lab</a></li>
-        <li><a href="#siem-ids-lab">SIEM & IDS/IPS Cybersecurity Simulation Lab</a></li>
-        <li><a href="#siem-validation-lab">SIEM & Security Control Validation Lab</a></li>
-      </ul>
+
+    <section id="labs" class="mt-10">
+      <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Labs & Projects</h2>
+      <article class="mb-6 border-l-4 pl-4 border-green-500">
+        <h3 class="text-lg font-semibold"><a href="#">Vulnerability Management & Compliance Framework</a></h3>
+        <p class="text-sm text-muted">Mapped vulnerabilities to NIST/ISO frameworks and created remediation strategies using Nessus and OpenVAS.</p>
+      </article>
+      <article class="mb-6 border-l-4 pl-4 border-blue-500">
+        <h3 class="text-lg font-semibold"><a href="#">AWS Cloud Security & Threat Detection</a></h3>
+        <p class="text-sm text-muted">Deployed honeypots and tuned AWS-native security tools like GuardDuty, WAF, and Detective for real attack detection.</p>
+      </article>
+      <article class="mb-6 border-l-4 pl-4 border-yellow-500">
+        <h3 class="text-lg font-semibold"><a href="#">Cloud Risk Assessment & Threat Intelligence</a></h3>
+        <p class="text-sm text-muted">Simulated IAM misconfigs and monitored telemetry to assess detection quality with GuardDuty and Security Hub.</p>
+      </article>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 Kevin Dawson | <a href="assets/kevindawson_qr_code.png" download>QR Code</a></p>
+
+  <footer class="p-4 text-center text-xs border-t">
+    <p>&copy; 2025 Kevin Dawson • <a href="https://github.com/kevindawsongso" target="_blank">GitHub</a> • <a href="https://linkedin.com/in/kevindawsongso" target="_blank">LinkedIn</a></p>
   </footer>
 </body>
 </html>
