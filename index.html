@@ -20,20 +20,6 @@
       document.documentElement.classList.add(storedTheme);
     });
   </script>
-  <!-- Calendly badge widget begin -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script type="text/javascript">
-    window.onload = function() {
-      Calendly.initBadgeWidget({
-        url: 'https://calendly.com/reachkevindawson/30min',
-        text: 'Let\'s meet!',
-        color: '#0069ff',
-        textColor: '#131212'
-      });
-    };
-  </script>
-  <!-- Calendly badge widget end -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body class="bg-white text-black font-sans">
@@ -44,17 +30,18 @@
       <h1 class="text-xl font-semibold mb-1">Kevin Dawson</h1>
       <p class="text-sm text-gray-600 mb-6">Cybersecurity Analyst</p>
       <div class="space-y-4 w-full">
-        <!-- Calendly link visual as fallback -->
-        <div class="text-center text-sm mb-2">
-          <a href="https://calendly.com/reachkevindawson/30min" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book a Meeting</a>
+        <!-- Calendly link -->
+        <div class="flex items-center space-x-2 text-sm">
+          <i class="fas fa-calendar-alt"></i>
+          <a href="https://calendly.com/reachkevindawson/30min" target="_blank" class="text-blue-600 hover:underline">Book a Meeting</a>
         </div>
         <div class="flex items-center space-x-2 text-sm">
           <i class="fas fa-envelope"></i>
-          <span>reachkevindawson@gmail.com</span>
+          <a href="mailto:reachkevindawson@gmail.com" class="text-blue-600 hover:underline">reachkevindawson@gmail.com</a>
         </div>
         <div class="flex items-center space-x-2 text-sm">
           <i class="fas fa-phone"></i>
-          <span>(336) 451-7839</span>
+          <a href="tel:3364517839" class="text-blue-600 hover:underline">336-451-7839</a>
         </div>
         <div class="flex items-center space-x-2 text-sm">
           <i class="fas fa-map-marker-alt"></i>
