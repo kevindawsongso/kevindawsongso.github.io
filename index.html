@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
@@ -18,72 +17,121 @@
     }
     document.addEventListener('DOMContentLoaded', () => {
       const storedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.classList.add(storedTheme);
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark'); // Ensure light mode if not dark
+      }
     });
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Custom styles for a cleaner look & project card hover */
+    .hover-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0,0,0,0.08); /* Enhanced shadow */
+    }
+    .project-link {
+      transition: color 0.3s ease-in-out;
+    }
+    .project-link:hover {
+      color: #4f46e5; /* Tailwind's indigo-600 for a slightly deeper hover */
+    }
+    .dark .project-link:hover {
+        color: #c7d2fe; /* Tailwind's indigo-300 for dark mode hover */
+    }
+  </style>
 </head>
-<body class="bg-white text-black font-sans">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
   <div class="min-h-screen flex">
-    <aside class="w-full max-w-xs bg-gray-200 p-6 flex flex-col items-center">
-      <a href="index.html"><img src="assets/kd-logo.png" alt="KD Logo" class="w-24 h-24 rounded-full mb-4 hover:opacity-80 transition" /></a>
-      <h1 class="text-xl font-semibold mb-1">Kevin Dawson</h1>
-      <p class="text-sm text-gray-600 mb-6">Cybersecurity & IT Professional</p>
-      <div class="space-y-4 w-full">
-        <div class="text-sm"><a href="https://calendly.com/reachkevindawson/30min" target="_blank" class="inline-block text-blue-600 hover:underline"><i class="fas fa-calendar-alt mr-1"></i>Book a Meeting</a></div>
-        <div class="text-sm"><i class="fas fa-envelope mr-2"></i><a href="mailto:reachkevindawson@gmail.com" class="text-blue-600 hover:underline">reachkevindawson@gmail.com</a></div>
-        <div class="text-sm"><i class="fab fa-github mr-2"></i><a href="https://github.com/reachkevindawson" target="_blank" class="text-blue-600 hover:underline">GitHub</a></div>
-        <div class="text-sm"><i class="fab fa-linkedin mr-2"></i><a href="https://linkedin.com/in/reachkevindawson" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a></div>
-        <div class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i><span>Greensboro, NC</span></div>
-      </div>
+    <aside class="w-full max-w-xs bg-white dark:bg-gray-800 p-6 flex flex-col items-center border-r border-gray-200 dark:border-gray-700">
+      <a href="index.html" class="block mb-6">
+        <img src="assets/kd-logo.png" alt="KD Logo" class="w-24 h-24 rounded-full hover:opacity-90 transition duration-300" />
+      </a>
+      <h1 class="text-lg font-semibold mb-2 text-center">Kevin Dawson</h1>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 text-center">Cybersecurity & IT Professional</p>
+      <nav class="space-y-3 w-full text-sm">
+        <a href="https://calendly.com/reachkevindawson/30min" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+          <i class="fas fa-calendar-alt mr-2"></i>Book a Meeting
+        </a>
+        <a href="mailto:reachkevindawson@gmail.com" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+          <i class="fas fa-envelope mr-2"></i>reachkevindawson@gmail.com
+        </a>
+        <a href="https://github.com/reachkevindawson" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+          <i class="fab fa-github mr-2"></i>GitHub
+        </a>
+        <a href="https://linkedin.com/in/kevin-dawson-gso" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+          <i class="fab fa-linkedin mr-2"></i>LinkedIn
+        </a>
+        <p class="flex items-center text-gray-600 dark:text-gray-400">
+          <i class="fas fa-map-marker-alt mr-2"></i>Greensboro, NC
+        </p>
+      </nav>
     </aside>
 
-    <main class="flex-1 p-10 bg-white dark:bg-gray-900 dark:text-white">
-      <div class="flex justify-end mb-6">
-        <button onclick="toggleTheme()" class="px-4 py-2 text-sm rounded bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">Toggle Theme</button>
+    <main class="flex-1 p-8 md:p-12">
+      <div class="flex justify-end mb-8">
+        <button onclick="toggleTheme()" class="px-4 py-2 text-sm rounded bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 transition duration-300">Toggle Theme</button>
       </div>
-      <nav class="flex space-x-6 mb-10">
-        <a href="index.html" class="hover:underline">Home</a>
-        <a href="portfolio.html" class="hover:underline">Portfolio</a>
-        <a href="resume.html" class="hover:underline">Resume</a>
-        <a href="blog.html" class="hover:underline">Blog</a>
+      <nav class="flex space-x-4 mb-12 text-lg">
+        <a href="index.html" class="font-semibold text-blue-600 dark:text-yellow-400 transition duration-300">Home</a>
+        <a href="portfolio.html" class="hover:text-blue-600 dark:hover:text-yellow-400 transition duration-300">Portfolio</a>
+        <a href="resume.html" class="hover:text-blue-600 dark:hover:text-yellow-400 transition duration-300">Resume</a>
+        <a href="blog.html" class="hover:text-blue-600 dark:hover:text-yellow-400 transition duration-300">Blog</a>
       </nav>
 
-      <!-- About Me -->
       <section class="mb-16">
-        <h2 class="text-2xl font-bold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">About Me</h2>
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-          I’m Kevin Dawson, a tech professional based in Greensboro, NC with a background that bridges IT systems, endpoint security, and cybersecurity. I started out in enterprise IT support and gradually shifted toward security, where I found purpose in threat detection, incident response, and building smarter, more resilient systems.
-          <br><br>
-          I’m at my best in hands-on environments. Whether I’m deploying honeypots on AWS, fine-tuning SIEM alerts in Splunk, or running lab simulations to validate controls, I stay focused on practical, real-world application. I don’t just want to run the tools, I want to understand how they work, why they matter, and how to use them to solve real problems.
-          <br><br>
-          Outside the terminal, I value structure, clarity, and helping others grow. I’m the one who documents the process, asks the “why” behind the task, and shares what I’ve learned. I’ve worked with nonprofits and enterprise teams alike to align technology with mission-critical outcomes.
-          <br><br>
-          This site is where I share my projects, labs, and lessons as I level up in the field. If you're here to connect, collaborate, or just talk shop, you’re in the right place.
-        </p>
+        <h2 class="text-3xl font-bold mb-6 border-b-2 border-gray-300 dark:border-gray-700 pb-3">What I'm Focused On</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
+            <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
+              <i class="fas fa-search mr-2"></i>Threat Hunting & SIEM
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+              Analyzing log data from various sources, detecting anomalies, and improving SIEM visibility using tools like <strong class="font-semibold">Splunk</strong> and <strong class="font-semibold">Suricata</strong>. Building effective detection rules and dashboards.
+            </p>
+            <a href="fin7-lab.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">Explore FIN7 Lab Project</a>
+          </div>
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
+            <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
+              <i class="fas fa-robot mr-2"></i>Security Automation
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+              Developing scripts and tools primarily in <strong class="font-semibold">Python</strong> and <strong class="font-semibold">PowerShell</strong> to automate alert triage, incident response workflows, and routine security tasks.
+            </p>
+            <a href="alert-triage-python.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">View Alert Triage Script</a>
+          </div>
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
+            <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
+                <i class="fab fa-aws mr-2"></i>Cloud Security & Honeypots
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                Deploying and managing security tools in <strong class="font-semibold">AWS</strong>, including setting up honeypots like Cowrie and Dionaea to gather threat intelligence and understand attacker TTPs.
+            </p>
+            <a href="aws-honeypots.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">See AWS Honeypot Setup</a>
+          </div>
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
+            <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
+              <i class="fas fa-hands-helping mr-2"></i>Nonprofit & Small Org Security
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+              Applying security best practices to strengthen infrastructure and documentation for smaller organizations, often with limited resources, focusing on NIST guidelines and practical solutions.
+            </p>
+            </div>
+        </div>
       </section>
 
-      <!-- What I'm Doing -->
-      <section>
-        <h2 class="text-2xl font-bold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">What I'm Doing</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl">
-            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">Threat Hunting</h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm">Analyzing log data, detecting anomalies, and improving SIEM visibility using Splunk and Suricata.</p>
-          </div>
-          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl">
-            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">AI & Automation</h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm">Building scripts and tools in Python and PowerShell to automate alerts, triage, and security workflows.</p>
-          </div>
-          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl">
-            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">Nonprofit Tech</h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm">Strengthening security infrastructure and documentation for small nonprofits with limited resources.</p>
-          </div>
-          <div class="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 p-5 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl">
-            <h3 class="font-semibold text-blue-600 dark:text-yellow-400 mb-2">Lifecycle & Compliance</h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm">Streamlining hardware lifecycles, improving patch management, and aligning with cybersecurity frameworks.</p>
-          </div>
-        </div>
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">About Me</h2>
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+          I’m Kevin Dawson, a tech professional based in Greensboro, NC. My background bridges IT systems, endpoint security, and a dedicated focus on cybersecurity. I began my journey in enterprise IT support, which provided a strong foundation in understanding user needs and system intricacies. This experience naturally led me toward security, where I discovered a passion for the proactive and analytical challenges of threat detection, incident response, and engineering resilient systems.
+        </p>
+        <p class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          I thrive in hands-on environments. Whether it’s deploying honeypots on AWS, fine-tuning SIEM alerts in Splunk, simulating attacks in a lab to validate security controls, or scripting solutions in Python, my focus is always on practical, real-world application. I believe in not just using the tools, but deeply understanding how they work, why they are important, and how they can be leveraged to solve tangible security problems.
+        </p>
+        <p class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+          Beyond the command line, I value structure, clear communication, and fostering growth in others. I'm often the one documenting processes, questioning the "why" behind a task to ensure alignment with broader goals, and sharing knowledge with my team. My experience includes working with both nonprofit organizations and enterprise teams, always aiming to align technology effectively with mission-critical outcomes. This site serves as a platform to share my projects, lab work, and the lessons I learn as I continue to advance in the cybersecurity field. If you're interested in connecting, collaborating, or discussing technology, you're in the right place.
+        </p>
       </section>
     </main>
   </div>
