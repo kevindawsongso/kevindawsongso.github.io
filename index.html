@@ -50,14 +50,14 @@
       </a>
       <h1 class="text-lg font-semibold mb-2 text-center">Kevin Dawson</h1>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 text-center">Cybersecurity & IT Professional</p>
-      <nav class="space-y-3 w-full text-sm">
+     <nav class="space-y-3 w-full text-sm">
         <a href="https://calendly.com/reachkevindawson/30min" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
           <i class="fas fa-calendar-alt mr-2"></i>Book a Meeting
         </a>
         <a href="mailto:reachkevindawson@gmail.com" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
           <i class="fas fa-envelope mr-2"></i>reachkevindawson@gmail.com
         </a>
-        <a href="https://github.com/reachkevindawson" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+        <a href="https://github.com/kevindawsongso/kevindawsongso.github.io" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
           <i class="fab fa-github mr-2"></i>GitHub
         </a>
         <a href="https://linkedin.com/in/kevin-dawson-gso" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
@@ -83,30 +83,28 @@
       <section class="mb-16">
         <h2 class="text-3xl font-bold mb-6 border-b-2 border-gray-300 dark:border-gray-700 pb-3">What I'm Focused On</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
+         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
             <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
-              <i class="fas fa-search mr-2"></i>Threat Hunting & SIEM
+              <i class="fas fa-search-plus mr-2"></i>Lazarus Group Detection Lab
             </h3>
             <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-              Analyzing log data from various sources, detecting anomalies, and improving SIEM visibility using tools like <strong class="font-semibold">Splunk</strong> and <strong class="font-semibold">Suricata</strong>. Building effective detection rules and dashboards.
+              This guide details a step-by-step process for building a cybersecurity home lab using VMware Workstation Pro. Its core purpose is to enable simulating and detecting the tactics, techniques, and procedures (TTPs) of the Lazarus Group, a notorious North Korean APT focused on financial gain and espionage. The guide includes comprehensive configuration steps, decision-making insights, simulation techniques, challenges, and troubleshooting. It is organized into phases: infrastructure setup, security tool implementation, and attack simulation/analysis, providing practical skills for threat detection.
             </p>
-            <a href="fin7-lab.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">Explore FIN7 Lab Project</a>
-          </div>
-          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
-            <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
-              <i class="fas fa-robot mr-2"></i>Security Automation
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-              Developing scripts and tools primarily in <strong class="font-semibold">Python</strong> and <strong class="font-semibold">PowerShell</strong> to automate alert triage, incident response workflows, and routine security tasks.
-            </p>
-            <a href="alert-triage-python.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">View Alert Triage Script</a>
+            <div class="flex flex-wrap items-center gap-2 mb-3 text-xs">
+              <span class="inline-flex items-center rounded-full bg-gray-200 dark:bg-gray-700 px-2.5 py-0.5 font-semibold text-gray-800 dark:text-gray-200">VMware</span>
+              <span class="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900 px-2.5 py-0.5 font-semibold text-blue-700 dark:text-blue-300">Splunk</span>
+              <span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900 px-2.5 py-0.5 font-semibold text-green-700 dark:text-green-300">Suricata</span>
+              <span class="inline-flex items-center rounded-full bg-red-100 dark:bg-red-900 px-2.5 py-0.5 font-semibold text-red-700 dark:text-red-300">pfSense</span>
+              <span class="inline-flex items-center rounded-full bg-purple-100 dark:bg-purple-900 px-2.5 py-0.5 font-semibold text-purple-700 dark:text-purple-300">Kali Linux</span>
+            </div>
+            <a href="lazarus-lab-guide.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">View Lab Build Guide</a>
           </div>
           <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl shadow-lg hover-card transition duration-300">
             <h3 class="font-semibold text-xl text-blue-600 dark:text-yellow-400 mb-2 flex items-center">
                 <i class="fab fa-aws mr-2"></i>Cloud Security & Honeypots
             </h3>
             <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-                Deploying and managing security tools in <strong class="font-semibold">AWS</strong>, including setting up honeypots like Cowrie and Dionaea to gather threat intelligence and understand attacker TTPs.
+Driven by a desire to gain hands-on cloud security experience and understand real-world threats, I built a lab with a T-Pot honeypot on AWS EC2 to capture attack patterns. Integrating GuardDuty, Detective, VPC Flow Logs, and CloudWatch allowed me to practice advanced detection and block malicious traffic via WAF. Segmenting assets in separate VPCs reinforced secure cloud design principles. Analyzing attacks like RDP/SSH brute-force significantly enhanced my knowledge and refined incident response tactics.
             </p>
             <a href="aws-honeypots.html" class="text-sm text-blue-600 dark:text-blue-400 hover:underline project-link">See AWS Honeypot Setup</a>
           </div>
@@ -115,8 +113,7 @@
               <i class="fas fa-hands-helping mr-2"></i>Nonprofit & Small Org Security
             </h3>
             <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-              Applying security best practices to strengthen infrastructure and documentation for smaller organizations, often with limited resources, focusing on NIST guidelines and practical solutions.
-            </p>
+I provided leadership with strategic security recommendations for the non-profit, grounded in CSF profiles tailored to comparable organizations. I also streamlined user and device management using Microsoft Entra ID and Azure services, significantly enhancing visibility over endpoint health and patching status. Additionally, I strengthened the network infrastructure by upgrading on-premise Ubiquiti equipment, reorganizing VLANs, and optimizing their shared tenant Internet environment for improved performance.            </p>
             </div>
         </div>
       </section>

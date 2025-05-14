@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class=""> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazarus Lab Guide - Kevin Dawson</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* Minimal Custom CSS for Lab Article Content */
+        /* These can be replaced with Tailwind utilities if a pure Tailwind approach is preferred */
+        .lab-content-wrapper h1, 
+        .lab-content-wrapper h2, 
+        .lab-content-wrapper h3, 
+        .lab-content-wrapper h4 {
+            margin-top: 1.25em;
+            margin-bottom: 0.5em;
+            font-weight: 600; /* semibold */
+        }
+        .lab-content-wrapper h1 { /* "Lazarus Lab Guide" title */
+            font-size: 2.25rem; /* text-4xl */
+            padding-bottom: 0.5em;
+            border-bottom-width: 2px;
+            border-color: #3B82F6; /* blue-500 */
+        }
+        .lab-content-wrapper h2 { /* Part Title e.g., "Lazarus Lab Build - Part 1..." */
+            font-size: 1.875rem; /* text-3xl */
+            padding-bottom: 0.25em;
+            border-bottom-width: 1px;
+            border-color: #D1D5DB; /* gray-300 */
+        }
+        .lab-content-wrapper h3 {
+            font-size: 1.5rem; /* text-2xl */
+        }
+        .lab-content-wrapper h4 {
+            font-size: 1.25rem; /* text-xl */
+        }
+        .lab-content-wrapper p {
+            margin-bottom: 1em;
+            line-height: 1.7;
+        }
+        .lab-content-wrapper ul,
+        .lab-content-wrapper ol {
+            margin-bottom: 1em;
+            padding-left: 1.25rem; /* pl-5 */
+            list-style-position: inside;
+        }
+        .lab-content-wrapper li {
+            margin-bottom: 0.5em;
+        }
+        .lab-content-wrapper table { /* For table wrapper for overflow, see HTML */
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5em;
+        }
+        .lab-content-wrapper th,
+        .lab-content-wrapper td {
+            border-width: 1px;
+            border-color: #D1D5DB; /* gray-300 */
+            padding: 0.75rem; /* p-3 */
+            text-align: left;
+        }
+        .lab-content-wrapper th {
+            background-color: #3B82F6; /* bg-blue-500 */
+            color: white; /* text-white */
+            font-weight: 700; /* font-bold */
+        }
+        .dark .lab-content-wrapper th {
+             background-color: #2563EB; /* dark:bg-blue-600 */
+        }
+        .lab-content-wrapper pre {
+            background-color: #1F2937; /* bg-gray-800 */
+            color: #D1D5DB; /* text-gray-300 */
+            border-width: 1px;
+            border-color: #4B5563; /* border-gray-600 */
+            padding: 1rem; /* p-4 */
+            overflow-x: auto;
+            border-radius: 0.375rem; /* rounded-md */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            margin-bottom: 1em;
+        }
+        .lab-content-wrapper .note {
+            font-style: italic;
+            background-color: #F3F4F6; /* bg-gray-100 */
+            color: #4B5563; /* text-gray-600 */
+            padding: 0.75rem 1rem; /* px-4 py-3 */
+            border-left-width: 4px;
+            border-color: #3B82F6; /* border-blue-500 */
+            margin: 1em 0;
+        }
+        .dark .lab-content-wrapper .note {
+            background-color: #374151; /* dark:bg-gray-700 */
+            color: #D1D5DB; /* dark:text-gray-300 */
+            border-color: #60A5FA; /* dark:border-blue-400 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
+
+    <div class="min-h-screen flex">
+        <aside class="w-full max-w-xs bg-white dark:bg-gray-800 p-6 flex flex-col items-center border-r border-gray-200 dark:border-gray-700 shadow-lg hidden md:flex">
+            <a href="index.html" class="block mb-6">
+                <img src="assets/kd-logo.png" alt="KD Logo" class="w-24 h-24 rounded-full hover:opacity-90 transition duration-300" />
+            </a>
+            <h1 class="text-lg font-semibold mb-2 text-center text-gray-900 dark:text-white">Kevin Dawson</h1>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 text-center">Cybersecurity & IT Professional</p>
+            <nav class="space-y-2 w-full text-sm">
+                <a href="https://calendly.com/reachkevindawson/30min" target="_blank" rel="noopener noreferrer" class="flex items-center py-2 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 rounded-md transition-colors duration-150">
+                    <i class="fas fa-calendar-alt mr-3 w-5 text-center"></i>Book a Meeting
+                </a>
+                <a href="mailto:reachkevindawson@gmail.com" class="flex items-center py-2 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 rounded-md transition-colors duration-150">
+                    <i class="fas fa-envelope mr-3 w-5 text-center"></i>Email
+                </a>
+                <a href="https://github.com/kevindawsongso/kevindawsongso.github.io" target="_blank" rel="noopener noreferrer" class="flex items-center py-2 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 rounded-md transition-colors duration-150">
+                    <i class="fab fa-github mr-3 w-5 text-center"></i>GitHub
+                </a>
+                <a href="https://linkedin.com/in/kevin-dawson-gso" target="_blank" rel="noopener noreferrer" class="flex items-center py-2 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 rounded-md transition-colors duration-150">
+                    <i class="fab fa-linkedin mr-3 w-5 text-center"></i>LinkedIn
+                </a>
+                <p class="flex items-center py-2 px-3 text-gray-600 dark:text-gray-400">
+                    <i class="fas fa-map-marker-alt mr-3 w-5 text-center"></i>Greensboro, NC
+                </p>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-6 sm:p-8 md:p-10 overflow-y-auto">
+            <div class="max-w-5xl mx-auto">
+                
+                <button class="md:hidden mb-4 px-3 py-2 rounded bg-gray-200 text-gray-700">Menu</button>
+
+                <div class="flex justify-end mb-8">
+                    <button onclick="toggleTheme()" class="px-4 py-2 text-sm rounded bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 transition-colors duration-300 shadow">
+                        <i class="fas fa-adjust mr-2"></i>Toggle Theme
+                    </button>
+                </div>
+                
+                <nav class="flex flex-wrap justify-center sm:justify-start gap-x-4 sm:gap-x-6 gap-y-2 mb-10 text-md sm:text-lg">
+                    <a href="index.html" class="font-semibold text-blue-600 dark:text-yellow-400 hover:underline transition-colors duration-300">Home</a>
+                    <a href="portfolio.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 hover:underline transition-colors duration-300">Portfolio</a>
+                    <a href="resume.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 hover:underline transition-colors duration-300">Resume</a>
+                    <a href="blog.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 hover:underline transition-colors duration-300">Blog</a>
+                </nav>
+                
+                <div class="lab-content-wrapper mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <h1>Lazarus Lab Guide</h1>
+                    <p class="text-gray-700 dark:text-gray-300">A comprehensive guide to building a cybersecurity home lab for detecting advanced threat actor TTPs.</p>
+
+                    <article id="part1" class="mt-8">
+                        <h2>Lazarus Lab Build - Part 1: Planning the Network Topology</h2>
+
+                        <p class="text-gray-700 dark:text-gray-300">Welcome to the start of my newest and most ambitious cybersecurity home lab build! This project is designed to provide hands-on experience in detecting the tactics, techniques, and procedures (TTPs) of sophisticated threat actors, specifically focusing on the Lazarus Group.</p>
+                        <p class="text-gray-700 dark:text-gray-300">Before diving into virtual machines and configurations, the crucial first step in building a realistic lab environment is careful network planning. This involves defining the different segments of the network and assigning IP address ranges. A well-planned, segmented network is fundamental for simulating real-world security scenarios and controlling traffic flow, which is essential for practicing firewalling and monitoring.</p>
+
+                        <h3 class="text-gray-800 dark:text-gray-100">Step 1: Plan Your Network Topology</h3>
+                        <p class="text-gray-700 dark:text-gray-300"><strong>Goal:</strong> To define the logical structure of the lab network, including network segments (subnets), their purpose, and the IP addressing scheme.</p>
+                        
+                        <h4 class="text-gray-800 dark:text-gray-100">Thought Process:</h4>
+                        <p class="text-gray-700 dark:text-gray-300">In a real corporate network, systems are typically separated into different zones based on their function and sensitivity (e.g., user workstations, servers, management systems). This segmentation limits the impact of a security breach. To simulate this, I need to create distinct network segments within my virtual lab. Each segment will be a separate IP subnet, and communication between these subnets will be controlled by a central firewall (pfSense). I also need a separate segment for the attacker machine to simulate an external threat.</p>
+
+                        <h4 class="text-gray-800 dark:text-gray-100">Network Segmentation Plan:</h4>
+                        <p class="text-gray-700 dark:text-gray-300">Based on the design for this lab, I've defined the following network segments:</p>
+                        <ul class="list-disc text-gray-700 dark:text-gray-300">
+                            <li><strong>WAN (Internet):</strong> This segment simulates the external internet. While not a true internet connection in the lab, it provides a point of egress for simulated outbound traffic and represents the untrusted external network.</li>
+                            <li><strong>Management/Security:</strong> This segment will house critical security infrastructure like the SIEM (Splunk) and network monitoring tools (Suricata), as well as a management workstation. Access to this segment should be tightly controlled.</li>
+                            <li><strong>Servers:</strong> This segment is dedicated to server infrastructure, such as the Domain Controller. Servers often hold sensitive data or provide critical services, making their isolation important.</li>
+                            <li><strong>Workstations:</strong> This segment represents the typical user environment, where initial compromises often occur through phishing or exploiting client-side vulnerabilities.</li>
+                            <li><strong>Attacker:</strong> This isolated segment will contain the Kali Linux VM, used to simulate attacks originating from outside the protected network.</li>
+                        </ul>
+
+                        <h4 class="text-gray-800 dark:text-gray-100">Subnet Allocation:</h4>
+                        <p class="text-gray-700 dark:text-gray-300">For each segment, I've allocated a specific IP address range (subnet) and determined which VMware virtual network (VMnet) it will map to and which interface on the pfSense firewall will serve as its gateway.</p>
+                        <div class="overflow-x-auto shadow-md rounded-lg my-6">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Network Segment</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Subnet</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">VMware VMnet</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">pfSense Interface</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">pfSense Interface IP (Gateway)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">WAN (Internet)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.136.0/24</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">VMnet8 (NAT)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">WAN</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">(DHCP from VMware)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">Management/Security</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.1.0/24</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">VMnet2</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">LAN</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.1.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">Servers</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.2.0/24</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">VMnet3</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">OPT1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.2.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">Workstations</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.3.0/24</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">VMnet4</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">OPT2</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.3.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">Attacker</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.4.0/24</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">VMnet5</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">OPT3</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">192.168.4.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="text-gray-800 dark:text-gray-100 mt-6">Reasoning:</h4>
+                        <ul class="list-disc text-gray-700 dark:text-gray-300">
+                            <li>Using standard private IP ranges (192.168.x.x) is appropriate for a lab.</li>
+                            <li>Employing /24 subnets (255.255.255.0 mask) provides 254 usable IP addresses per segment, which is more than sufficient for this lab's needs and simplifies configuration.</li>
+                            <li>Assigning a unique VMnet to each internal segment ensures isolation at the hypervisor level before traffic even reaches the firewall.</li>
+                            <li>Mapping each internal VMnet to a specific pfSense interface (LAN, OPT1-OPT3) allows pfSense to act as the central router and enforcement point between segments.</li>
+                            <li>The pfSense interface IP for each segment will serve as the default gateway for all VMs within that segment.</li>
+                        </ul>
+
+                        <h4 class="text-gray-800 dark:text-gray-100 mt-6">Network Diagram (Conceptual)</h4>
+                        <p class="text-gray-700 dark:text-gray-300">This diagram illustrates how the different network segments will connect logically through the pfSense firewall:</p>
+                        <pre class="my-4">
+graph LR
+    WAN[(Internet)] -- VMnet8 (NAT) --> pfSense
+    pfSense -- VMnet2 (LAN) --> Management_Security[Management/Security\n192.168.1.0/24]
+    pfSense -- VMnet3 (OPT1) --> Servers[Servers\n192.168.2.0/24]
+    pfSense -- VMnet4 (OPT2) --> Workstations[Workstations\n192.168.3.0/24]
+    pfSense -- VMnet5 (OPT3) --> Attacker[Attacker\n192.168.4.0/24]
+
+    Management_Security -- VMs --> Ubuntu_Sec_Mon(Ubuntu Security Monitor)
+    Servers -- VMs --> Win_DC01(Windows Server DC01)
+    Workstations -- VMs --> Win_WS01(Windows LabWorkstation 1)
+    Workstations -- VMs --> Win_WS02(Windows Workstation WS02)
+    Workstations -- VMs --> OWASP_BWA(OWASP BWA)
+    Attacker -- VMs --> Kali(Kali Linux)
+                        </pre>
+                        <p class="note text-sm">Note: This diagram is a simplified representation. All internal segments connect only through the pfSense firewall. To render this diagram, you can use a Mermaid Live Editor or a JavaScript library integrated into your page.</p>
+
+                        <p class="text-gray-700 dark:text-gray-300 mt-6">This concludes the initial network planning phase. Having this clear blueprint is essential before moving on to configuring the virtual network environment in VMware.</p>
+                    </article>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Basic Theme Toggle Functionality
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply saved theme on load or detect prefers-color-scheme
+        (function() {
+            const htmlElement = document.documentElement;
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+        })();
+    </script>
+</body>
+</html>
